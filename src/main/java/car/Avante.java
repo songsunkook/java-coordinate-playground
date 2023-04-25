@@ -1,6 +1,6 @@
 package car;
 
-public class Avante extends Car {
+public class Avante implements Car {
 	private static final int DISTANCE_PER_LITER = 15;
 	private static final String NAME = "Avante";
 
@@ -11,17 +11,22 @@ public class Avante extends Car {
 	}
 
 	@Override
-	protected double getDistancePerLiter() {
+	public double getDistancePerLiter() {
 		return DISTANCE_PER_LITER;
 	}
 
 	@Override
-	protected double getTripDistance() {
+	public double getTripDistance() {
 		return tripDistance;
 	}
 
 	@Override
 	public String getName() {
 		return NAME;
+	}
+
+	@Override
+	public double getChargeQuantity() {
+		return getTripDistance() / getDistancePerLiter();
 	}
 }
