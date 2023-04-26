@@ -12,13 +12,13 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
 @DisplayName("숫자에 대하여")
-public class StringUtilTest {
+public class NumberUtilTest {
 
 	@ParameterizedTest
 	@DisplayName("정상적으로 자르는가")
 	@MethodSource("processTestProvider")
 	public void processTest(String string, List<Integer> result){
-		assertEquals(StringUtil.process(string), result);
+		assertEquals(NumberUtil.process(string), result);
 	}
 
 
