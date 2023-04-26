@@ -14,9 +14,7 @@ public abstract class NumberUtil {
 		List<Integer> result = list.stream()
 			.map(Integer::parseInt)
 			.collect(Collectors.toList());
-		
 		checkExceptions(result);
-		
 		return result;
 	}
 
