@@ -5,6 +5,7 @@ import java.util.List;
 import service.CalculatorService;
 import util.NumberUtil;
 import view.InputView;
+import view.OutputView;
 
 public class GameController {
     InputView inputView = new InputView();
@@ -17,5 +18,9 @@ public class GameController {
 
     private String inputCoordinates() {
         return inputView.coordinates();
+    }
+
+    private void outputCoordinatePlane() {
+        OutputView.outputCoordinatePlane();
     }
 }
