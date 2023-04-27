@@ -10,10 +10,23 @@ import dto.CoordinateDto;
 public class OutputView {
     public static void outputCoordinatePlane(List<CoordinateDto> coordinates) {
         List<String> basePlane = drawBasePlane();
+        coordinates = coordinates;
 
-        //TODO : 좌표 점 찍기
-
+        drawCoordinate(basePlane, coordinates);
         printPlane(basePlane);
+    }
+
+    private static void drawCoordinate(List<String> plane, List<CoordinateDto> coordinates) {
+        for (CoordinateDto coordinate : coordinates) {
+            int xPos = coordinate.positionX();
+            int yPos = coordinate.positionY();
+
+            plane.set(yPos + 1,
+                plane.get(yPos + 1).substring(0, (xPos + 1) * 2)
+                    + " ●"
+                    + plane.get(yPos + 1).substring((xPos + 1) * 2 + 2)
+            );
+        }
     }
 
     private static List<String> drawBasePlane() {
@@ -22,9 +35,9 @@ public class OutputView {
 
         for (int height = 1; height <= 24; height++) {
             if (height % 2 == 0) {
-                plane.add(String.format("%2d", height) + "│");
+                plane.add(String.format("%2d", height) + "│" + " ".repeat(24 * 2));
             } else {
-                plane.add("  │");
+                plane.add("  │" + " ".repeat(24 * 2));
             }
         }
 
