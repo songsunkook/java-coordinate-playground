@@ -4,12 +4,13 @@ import view.InputView;
 
 public class GameController {
     InputView inputView = new InputView();
+    CalculatorService calculatorService = new CalculatorService();
 
     public void run() {
-        inputCoordinates();
+         calculatorService.inputCoordinates(inputCoordinates());
     }
 
-    private void inputCoordinates() {
-        inputView.coordinates();
+    private String inputCoordinates() {
+        return inputView.coordinates();
     }
 }
