@@ -8,8 +8,7 @@ import view.InputView;
 import view.OutputView;
 
 public class GameController {
-    InputView inputView = new InputView();
-    CalculatorService calculatorService = new CalculatorService();
+    private final CalculatorService calculatorService = new CalculatorService();
 
     public void run() {
         List<Integer> inputIntegers = NumberUtil.separatingCoordinates(inputCoordinates());
@@ -17,7 +16,7 @@ public class GameController {
     }
 
     private String inputCoordinates() {
-        return inputView.coordinates();
+        return InputView.coordinates();
     }
 
     private void outputCoordinatePlane() {
