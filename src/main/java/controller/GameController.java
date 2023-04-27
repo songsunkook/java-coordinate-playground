@@ -1,6 +1,6 @@
 package controller;
 
-import util.NumberUtil;
+import view.InputView;
 
 public class GameController {
     InputView inputView = new InputView();
