@@ -1,6 +1,7 @@
 package view;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import constant.OutputMessages;
@@ -10,24 +11,23 @@ public class OutputView {
     public static void outputCoordinatePlane(List<CoordinateDto> coordinates) {
         List<String> basePlane = drawBasePlane();
 
-        //TODO : 좌표 점 찍고 출력하기
+        //TODO : 좌표 점 찍기
+
+        printPlane(basePlane);
     }
 
     private static List<String> drawBasePlane() {
         List<String> plane = new ArrayList<>();
         drawXAxis(plane);
 
-        for (int height = 1; height <= 24 + 1; height++) {
+        for (int height = 1; height <= 24; height++) {
             if (height % 2 == 0) {
                 plane.add(String.format("%2d", height) + "│");
             } else {
                 plane.add("  │");
             }
         }
-        /* BasePlane 출력 테스트용
-        for (int height = 25; height >= 0; height--) {
-            System.out.println(plane.get(height));
-        }*/
+
         return plane;
     }
 
@@ -43,6 +43,15 @@ public class OutputView {
         plane.add(" 0  " + xAxis);
 
         plane.add("  +" + "─".repeat(24 * 2));
+    }
+
+    private static void printPlane(List<String> plane) {
+        List<String> clone = new ArrayList<>(plane);
+        Collections.reverse(clone);
+
+        for (String line : clone) {
+            System.out.println(line);
+        }
     }
 
     public static void outputMessage(OutputMessages outputMessage) {
