@@ -2,8 +2,10 @@ package service;
 
 import java.util.List;
 
+import domain.Coordinate;
+
 public class CalculatorService {
-    public void inputCoordinates(List<Integer> inputIntegers) {
+    public void inputCoordinates(List<Coordinate> coordinate) {
 
     }
 }
