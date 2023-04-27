@@ -35,9 +35,10 @@ public class Coordinate {
     }
 
     private static List<Integer> process(String input) {
+        String original = input;
         input = input.substring(STRING_TRIM_INDEX, input.length() - STRING_TRIM_INDEX);
         List<String> list = Arrays.asList(input.split(","));
-        List<Integer> result = stringToIntList(list);
+        List<Integer> result = stringToIntList(list, original);
         checkExceptions(result);
         return result;
     }
@@ -48,13 +49,13 @@ public class Coordinate {
         }
     }
 
-    private static List<Integer> stringToIntList(List<String> input) {
+    private static List<Integer> stringToIntList(List<String> input, String original) {
         try {
             return input.stream()
                 .map(Integer::parseInt)
                 .collect(Collectors.toList());
         } catch (Exception e) {
-            throw new NotCoordinateException();
+            throw new NotCoordinateException(original);
         }
     }
 }

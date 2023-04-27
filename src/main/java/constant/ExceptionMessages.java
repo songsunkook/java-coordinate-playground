@@ -22,11 +22,11 @@ public enum ExceptionMessages {
         }
         return message;
     }
-/*
-    public String getMessage(List<String> coordinate) {
+
+    public String getMessage(String coordinate) {
         if (message.equals(NOT_COORDINATE.getMessage())) {
             return String.format(message, coordinate);
         }
         return message;
-    }*/
+    }
 }
