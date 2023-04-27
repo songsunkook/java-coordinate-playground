@@ -3,6 +3,8 @@ package view;
 import java.util.ArrayList;
 import java.util.List;
 
+import constant.OutputMessages;
+
 public class OutputView {
     public static void outputCoordinatePlane() {
         List<String> basePlane = drawBasePlane();
@@ -38,5 +40,9 @@ public class OutputView {
         plane.add(" 0  " + xAxis);
 
         plane.add("  +" + "─".repeat(24 * 2));
+    }
+
+    public static void outputMessage(OutputMessages outputMessage) {
+        System.out.println(outputMessage.getMessage());
     }
 }

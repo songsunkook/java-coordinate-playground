@@ -2,6 +2,7 @@ package controller;
 
 import java.util.List;
 
+import constant.OutputMessages;
 import service.CalculatorService;
 import util.NumberUtil;
 import view.InputView;
@@ -16,6 +17,7 @@ public class GameController {
     }
 
     private String inputCoordinates() {
+        OutputView.outputMessage(OutputMessages.INPUT_COORDINATES);
         return InputView.coordinates();
     }
 
