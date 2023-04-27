@@ -4,6 +4,7 @@ import java.util.List;
 
 import constant.OutputMessages;
 import domain.Coordinate;
+import dto.CoordinateDto;
 import service.CalculatorService;
 import util.NumberUtil;
 import view.InputView;
@@ -14,7 +15,7 @@ public class GameController {
 
     public void run() {
         List<Coordinate> inputIntegers = NumberUtil.separatingCoordinates(inputCoordinates());
-        calculatorService.inputCoordinates(inputIntegers);
+        outputCoordinatePlane(calculatorService.inputCoordinates(inputIntegers));
     }
 
     private String inputCoordinates() {
@@ -22,7 +23,7 @@ public class GameController {
         return InputView.coordinates();
     }
 
-    private void outputCoordinatePlane() {
-        OutputView.outputCoordinatePlane();
+    private void outputCoordinatePlane(List<CoordinateDto> coordinates) {
+        OutputView.outputCoordinatePlane(coordinates);
     }
 }

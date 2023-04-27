@@ -4,10 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import constant.OutputMessages;
+import dto.CoordinateDto;
 
 public class OutputView {
-    public static void outputCoordinatePlane() {
+    public static void outputCoordinatePlane(List<CoordinateDto> coordinates) {
         List<String> basePlane = drawBasePlane();
+
+        //TODO : 좌표 점 찍고 출력하기
     }
 
     private static List<String> drawBasePlane() {

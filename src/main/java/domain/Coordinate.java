@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import dto.CoordinateDto;
 import exception.OutOfRangeException;
 
 public class Coordinate {
@@ -26,6 +27,10 @@ public class Coordinate {
 
     public boolean isEquals(Coordinate coordinate) {
         return xPos == coordinate.xPos && yPos == coordinate.yPos;
+    }
+
+    public CoordinateDto toDto() {
+        return new CoordinateDto(xPos, yPos);
     }
 
     private static List<Integer> process(String input) {
