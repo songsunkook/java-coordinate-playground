@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import dto.CoordinateDto;
+import exception.NotCoordinateException;
 import exception.OutOfRangeException;
 
 public class Coordinate {
@@ -36,14 +37,24 @@ public class Coordinate {
     private static List<Integer> process(String input) {
         input = input.substring(STRING_TRIM_INDEX, input.length() - STRING_TRIM_INDEX);
         List<String> list = Arrays.asList(input.split(","));
-        return list.stream()
-            .map(Integer::parseInt)
-            .collect(Collectors.toList());
+        List<Integer> result = stringToIntList(list);
+        checkExceptions(result);
+        return result;
     }
 
-    private void checkExceptions(List<Integer> result) {
+    private static void checkExceptions(List<Integer> result) {
         if (result.stream().anyMatch(i -> i < 1 || i > 24)) {
             throw new OutOfRangeException(result);
+        }
+    }
+
+    private static List<Integer> stringToIntList(List<String> input) {
+        try {
+            return input.stream()
+                .map(Integer::parseInt)
+                .collect(Collectors.toList());
+        } catch (Exception e) {
+            throw new NotCoordinateException();
         }
     }
 }
