@@ -14,8 +14,13 @@ public class GameController {
     private final CalculatorService calculatorService = new CalculatorService();
 
     public void run() {
-        List<Coordinate> inputIntegers = NumberUtil.separatingCoordinates(inputCoordinates());
-        outputCoordinatePlane(calculatorService.inputCoordinates(inputIntegers));
+        try {
+            List<Coordinate> inputIntegers = NumberUtil.separatingCoordinates(inputCoordinates());
+            outputCoordinatePlane(calculatorService.inputCoordinates(inputIntegers));
+        } catch (RuntimeException exception) {
+            OutputView.outputExceptionMessage(exception.getMessage());
+            run();
+        }
     }
 
     private String inputCoordinates() {

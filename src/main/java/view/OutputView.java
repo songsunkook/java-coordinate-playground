@@ -70,4 +70,8 @@ public class OutputView {
     public static void outputMessage(OutputMessages outputMessage) {
         System.out.println(outputMessage.getMessage());
     }
+
+    public static void outputExceptionMessage(String message) {
+        System.out.println(message);
+    }
 }
