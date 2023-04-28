@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 import domain.Coordinate;
 
 public class NumberUtil {
+    //복수의 점 입력 시 List<Coordinate>로 반환
     public static List<Coordinate> separatingCoordinates(String input) {
         if (input.contains("-")) {
             List<String> splitString = Arrays.asList(input.split("-"));
