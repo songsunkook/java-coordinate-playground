@@ -7,11 +7,17 @@ import domain.Coordinate;
 import dto.CoordinateDto;
 
 public abstract class CalculatorService {
-    public List<CoordinateDto> inputCoordinates(List<Coordinate> coordinate) {
+    public List<CoordinateDto> domainToDto(List<Coordinate> coordinate) {
         return coordinate.stream()
             .map(Coordinate::toDto)
             .collect(Collectors.toList());
     }
 
-    public abstract void calculate();
+    private List<Coordinate> dtoToDomain(List<CoordinateDto> coordinateDto) {
+        return coordinateDto.stream()
+            .map(Coordinate::toDomain)
+            .collect(Collectors.toList());
+    }
+
+    public abstract double calculate();
 }

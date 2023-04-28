@@ -34,6 +34,10 @@ public class Coordinate {
         return new CoordinateDto(xPos, yPos);
     }
 
+    public static Coordinate toDomain(CoordinateDto coordinateDto) {
+        return new Coordinate(Arrays.asList(coordinateDto.positionX(), coordinateDto.positionY()));
+    }
+
     private static List<Integer> process(String input) {
         String original = input;
         input = input.substring(STRING_TRIM_INDEX, input.length() - STRING_TRIM_INDEX);

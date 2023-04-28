@@ -30,7 +30,7 @@ public class GameController {
                 calculatorService = new RectangleCalculator();
             }
 
-            outputCoordinatePlane(calculatorService.inputCoordinates(inputIntegers));
+            outputCoordinatePlane(calculatorService.domainToDto(inputIntegers));
             //TODO 결과 출력 문구
         } catch (RuntimeException exception) {
             OutputView.outputExceptionMessage(exception.getMessage());
