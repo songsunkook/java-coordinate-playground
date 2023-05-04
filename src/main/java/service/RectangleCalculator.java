@@ -11,7 +11,6 @@ public class RectangleCalculator extends CalculatorService {
 
     @Override
     public double calculate() {
-
-        return 0;
+        return coordinates.get(0).multiply(coordinates.get(1));
     }
 }

@@ -43,6 +43,9 @@ public class Coordinate {
         return new Coordinate(argument);
     }
 
+    public double multiply(Coordinate target) {
+        return (xPos - target.xPos) * (yPos - target.yPos);
+    }
     public int positionX() {
         return xPos;
     }
