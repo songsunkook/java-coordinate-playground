@@ -53,5 +53,8 @@ public class GameController {
         if(size == 2) {
             OutputView.resultLine(result);
         }
+        if(size == 4) {
+            OutputView.resultRectangle(result);
+        }
     }
 }

@@ -78,4 +78,8 @@ public class OutputView {
     public static void resultLine(double result) {
         System.out.println(OutputMessages.OUTPUT_LINE.getMessage(result));
     }
+
+    public static void resultRectangle(double result) {
+        System.out.println(OutputMessages.OUTPUT_RECTANGLE.getMessage(result));
+    }
 }
