@@ -20,19 +20,20 @@ public class GameController {
     public void run() {
         try {
             List<Coordinate> inputIntegers = NumberUtil.separatingCoordinates(inputCoordinates());
-
+            //TODO 조건문 메서드로 분리
             if (inputIntegers.size() <= 2) {
-                calculatorService = new LineCalculator();
+                calculatorService = new LineCalculator(inputIntegers);
             }
             if (inputIntegers.size() == 3) {
-                calculatorService = new TriangleCalculator();
+                calculatorService = new TriangleCalculator(inputIntegers);
             }
             if (inputIntegers.size() == 4) {
-                calculatorService = new RectangleCalculator();
+                calculatorService = new RectangleCalculator(inputIntegers);
             }
-
+            //TODO domainToDto -> toDto
             outputCoordinatePlane(calculatorService.domainToDto(inputIntegers));
             //TODO 결과 출력 문구
+            outputCalculateResult(calculatorService.calculate(), inputIntegers.size());
         } catch (RuntimeException exception) {
             OutputView.outputExceptionMessage(exception.getMessage());
             run();
@@ -46,5 +47,11 @@ public class GameController {
 
     private void outputCoordinatePlane(List<CoordinateDto> coordinates) {
         OutputView.outputCoordinatePlane(coordinates);
+    }
+
+    private void outputCalculateResult(double result, int size) {
+        if(size == 2) {
+            OutputView.resultLine(result);
+        }
     }
 }

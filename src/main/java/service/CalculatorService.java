@@ -10,6 +10,10 @@ import java.util.stream.Collectors;
 public abstract class CalculatorService {
     protected List<Coordinate> coordinates = new ArrayList<>();
 
+    public CalculatorService(List<Coordinate> coordinates) {
+        this.coordinates = coordinates;
+    }
+
     public List<CoordinateDto> domainToDto(List<Coordinate> coordinate) {
         return coordinate.stream()
             .map(Coordinate::toDto)

@@ -16,7 +16,7 @@ public class Coordinate {
 
     //List<Integer>: 1,3
     public Coordinate(List<Integer> numbers) {
-        checkExceptions(numbers);
+        //checkExceptions(numbers);
         this.xPos = numbers.get(0);
         this.yPos = numbers.get(1);
     }
