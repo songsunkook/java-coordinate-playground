@@ -1,12 +1,15 @@
 package service;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
 import domain.Coordinate;
 import dto.CoordinateDto;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
 public abstract class CalculatorService {
+    protected List<Coordinate> coordinates = new ArrayList<>();
+
     public List<CoordinateDto> domainToDto(List<Coordinate> coordinate) {
         return coordinate.stream()
             .map(Coordinate::toDto)

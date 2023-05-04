@@ -1,6 +1,5 @@
 package controller;
 
-import java.util.List;
 
 import constant.OutputMessages;
 import domain.Coordinate;
@@ -12,6 +11,8 @@ import service.TriangleCalculator;
 import util.NumberUtil;
 import view.InputView;
 import view.OutputView;
+
+import java.util.List;
 
 public class GameController {
     private CalculatorService calculatorService;

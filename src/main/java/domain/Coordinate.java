@@ -1,12 +1,12 @@
 package domain;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
-
 import dto.CoordinateDto;
 import exception.NotCoordinateException;
 import exception.OutOfRangeException;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class Coordinate {
     private static final int STRING_TRIM_INDEX = 1;
@@ -36,6 +36,19 @@ public class Coordinate {
 
     public static Coordinate toDomain(CoordinateDto coordinateDto) {
         return new Coordinate(Arrays.asList(coordinateDto.positionX(), coordinateDto.positionY()));
+    }
+
+    public Coordinate subtract(Coordinate target) {
+        List<Integer> argument = Arrays.asList(xPos - target.xPos, yPos - target.yPos);
+        return new Coordinate(argument);
+    }
+
+    public int positionX() {
+        return xPos;
+    }
+
+    public int positionY() {
+        return yPos;
     }
 
     private static List<Integer> process(String input) {
