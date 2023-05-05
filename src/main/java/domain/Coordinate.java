@@ -13,14 +13,11 @@ public class Coordinate {
     private final int xPos;
     private final int yPos;
 
-    //List<Integer>: 1,3
     public Coordinate(List<Integer> numbers) {
-        //checkExceptions(numbers);
         this.xPos = numbers.get(0);
         this.yPos = numbers.get(1);
     }
 
-    //String: "(1,3)"
     public Coordinate(String input) {
         this(process(input));
     }
