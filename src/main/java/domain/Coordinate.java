@@ -1,12 +1,12 @@
 package domain;
 
-import dto.CoordinateDto;
-import exception.NotCoordinateException;
-import exception.OutOfRangeException;
-
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import dto.CoordinateDto;
+import exception.NotCoordinateException;
+import exception.OutOfRangeException;
 
 public class Coordinate {
     private static final int STRING_TRIM_INDEX = 1;
@@ -46,12 +46,37 @@ public class Coordinate {
     public double multiply(Coordinate target) {
         return (xPos - target.xPos) * (yPos - target.yPos);
     }
+
     public int positionX() {
         return xPos;
     }
 
     public int positionY() {
         return yPos;
+    }
+
+    public static Coordinate max(List<Coordinate> coordinates) {
+        int maxX = coordinates.stream()
+            .mapToInt(Coordinate::positionX)
+            .max()
+            .orElseThrow(() -> new RuntimeException("좌표가 없습니다."));
+        int maxY = coordinates.stream()
+            .mapToInt(Coordinate::positionY)
+            .max()
+            .orElseThrow(() -> new RuntimeException("좌표가 없습니다."));
+        return new Coordinate(Arrays.asList(maxX, maxY));
+    }
+
+    public static Coordinate min(List<Coordinate> coordinates) {
+        int minX = coordinates.stream()
+            .mapToInt(Coordinate::positionX)
+            .min()
+            .orElseThrow(() -> new RuntimeException("좌표가 없습니다."));
+        int minY = coordinates.stream()
+            .mapToInt(Coordinate::positionY)
+            .min()
+            .orElseThrow(() -> new RuntimeException("좌표가 없습니다."));
+        return new Coordinate(Arrays.asList(minX, minY));
     }
 
     private static List<Integer> process(String input) {
