@@ -16,28 +16,29 @@ import view.InputView;
 import view.OutputView;
 
 public class GameController {
-    private CalculatorService calculatorService;
-
     public void run() {
         try {
             List<Coordinate> inputIntegers = NumberUtil.separatingCoordinates(inputCoordinates());
-            //TODO 조건문 메서드로 분리
-            if (inputIntegers.size() <= 2) {
-                calculatorService = new LineCalculator(inputIntegers);
-            }
-            if (inputIntegers.size() == 3) {
-                calculatorService = new TriangleCalculator(inputIntegers);
-            }
-            if (inputIntegers.size() == 4) {
-                calculatorService = new RectangleCalculator(inputIntegers);
-            }
+            CalculatorService calculatorService = selectCalculatorService(inputIntegers);
             printCoordinatePlane(inputIntegers);
-            //TODO 결과 출력 문구
             outputCalculateResult(calculatorService.calculate(), inputIntegers.size());
         } catch (RuntimeException exception) {
             OutputView.outputExceptionMessage(exception.getMessage());
             run();
         }
+    }
+
+    private CalculatorService selectCalculatorService(List<Coordinate> inputIntegers) {
+        if (inputIntegers.size() <= 2) {
+            return new LineCalculator(inputIntegers);
+        }
+        if (inputIntegers.size() == 3) {
+            return new TriangleCalculator(inputIntegers);
+        }
+        if (inputIntegers.size() == 4) {
+            return new RectangleCalculator(inputIntegers);
+        }
+        throw new RuntimeException("좌표의 개수가 잘못되었습니다.");
     }
 
     private void printCoordinatePlane(List<Coordinate> coordinates) {
