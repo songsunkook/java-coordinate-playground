@@ -1,11 +1,11 @@
 package service;
 
-import domain.Coordinate;
-import dto.CoordinateDto;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import domain.Coordinate;
+import dto.CoordinateDto;
 
 public abstract class CalculatorService {
     protected List<Coordinate> coordinates = new ArrayList<>();

@@ -19,8 +19,8 @@ public class TriangleCalculator extends CalculatorService {
             LineCalculator lineCalculator = new LineCalculator(coordinatesParam);
             len[i] = Math.abs(lineCalculator.calculate());
         }
-        double s = (Arrays.stream(len).sum()) / 2;
-        return Math.sqrt(s * (s - len[0]) * (s - len[1]) * (s - len[2]));
+        double valueS = (Arrays.stream(len).sum()) / 2;
+        return Math.sqrt(valueS * (valueS - len[0]) * (valueS - len[1]) * (valueS - len[2]));
     }
 
     private List<Coordinate> setCoordinatesParam(int index) {

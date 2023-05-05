@@ -1,8 +1,8 @@
 package service;
 
-import domain.Coordinate;
-
 import java.util.List;
+
+import domain.Coordinate;
 
 public class LineCalculator extends CalculatorService {
     public LineCalculator(List<Coordinate> coordinates) {
@@ -12,8 +12,8 @@ public class LineCalculator extends CalculatorService {
     @Override
     public double calculate() {
         Coordinate calculatedCoordinate = coordinates.get(0).subtract(coordinates.get(1));
-        double x = Math.pow(calculatedCoordinate.positionX(), 2);
-        double y = Math.pow(calculatedCoordinate.positionY(), 2);
-        return Math.sqrt(x + y);
+        double valueX = Math.pow(calculatedCoordinate.positionX(), 2);
+        double valueY = Math.pow(calculatedCoordinate.positionY(), 2);
+        return Math.sqrt(valueX + valueY);
     }
 }
