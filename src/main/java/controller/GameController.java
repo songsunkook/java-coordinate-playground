@@ -1,5 +1,6 @@
 package controller;
 
+import java.util.List;
 
 import constant.OutputMessages;
 import domain.Coordinate;
@@ -11,8 +12,6 @@ import service.TriangleCalculator;
 import util.NumberUtil;
 import view.InputView;
 import view.OutputView;
-
-import java.util.List;
 
 public class GameController {
     private CalculatorService calculatorService;
@@ -50,10 +49,13 @@ public class GameController {
     }
 
     private void outputCalculateResult(double result, int size) {
-        if(size == 2) {
+        if (size == 2) {
             OutputView.resultLine(result);
         }
-        if(size == 4) {
+        if (size == 3) {
+            OutputView.resultTriangle(result);
+        }
+        if (size == 4) {
             OutputView.resultRectangle(result);
         }
     }

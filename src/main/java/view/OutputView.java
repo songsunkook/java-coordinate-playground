@@ -1,11 +1,11 @@
 package view;
 
-import constant.OutputMessages;
-import dto.CoordinateDto;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
+import constant.OutputMessages;
+import dto.CoordinateDto;
 
 public class OutputView {
     public static void outputCoordinatePlane(List<CoordinateDto> coordinates) {
@@ -81,5 +81,9 @@ public class OutputView {
 
     public static void resultRectangle(double result) {
         System.out.println(OutputMessages.OUTPUT_RECTANGLE.getMessage(result));
+    }
+
+    public static void resultTriangle(double result) {
+        System.out.println(OutputMessages.OUTPUT_TRIANGLE.getMessage(result));
     }
 }
