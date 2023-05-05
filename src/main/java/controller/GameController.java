@@ -1,10 +1,12 @@
 package controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import constant.OutputMessages;
 import domain.Coordinate;
 import dto.CoordinateDto;
+import mapstruct.CoordinateConverter;
 import service.CalculatorService;
 import service.LineCalculator;
 import service.RectangleCalculator;
@@ -29,14 +31,21 @@ public class GameController {
             if (inputIntegers.size() == 4) {
                 calculatorService = new RectangleCalculator(inputIntegers);
             }
-            //TODO domainToDto -> toDto
-            outputCoordinatePlane(calculatorService.domainToDto(inputIntegers));
+            printCoordinatePlane(inputIntegers);
             //TODO 결과 출력 문구
             outputCalculateResult(calculatorService.calculate(), inputIntegers.size());
         } catch (RuntimeException exception) {
             OutputView.outputExceptionMessage(exception.getMessage());
             run();
         }
+    }
+
+    private void printCoordinatePlane(List<Coordinate> coordinates) {
+        List<CoordinateDto> coordinateDtos = new ArrayList<>();
+        for (Coordinate coordinate : coordinates) {
+            coordinateDtos.add(CoordinateConverter.toDto(coordinate));
+        }
+        outputCoordinatePlane(coordinateDtos);
     }
 
     private String inputCoordinates() {
