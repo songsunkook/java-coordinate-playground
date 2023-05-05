@@ -11,6 +11,9 @@ public class LineCalculator extends CalculatorService {
 
     @Override
     public double calculate() {
+        if (coordinates.size() != 2) {
+            return 0;
+        }
         Coordinate calculatedCoordinate = coordinates.get(0).subtract(coordinates.get(1));
         double valueX = Math.pow(calculatedCoordinate.positionX(), 2);
         double valueY = Math.pow(calculatedCoordinate.positionY(), 2);
