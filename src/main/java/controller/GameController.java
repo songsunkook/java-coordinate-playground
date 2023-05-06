@@ -3,6 +3,7 @@ package controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import constant.ConstantNumber;
 import constant.OutputMessages;
 import domain.Coordinate;
 import dto.CoordinateDto;
@@ -29,13 +30,13 @@ public class GameController {
     }
 
     private CalculatorService selectCalculatorService(List<Coordinate> inputIntegers) {
-        if (inputIntegers.size() <= 2) {
+        if (inputIntegers.size() <= ConstantNumber.LINE_LENGTH.getNumber()) {
             return new LineCalculator(inputIntegers);
         }
-        if (inputIntegers.size() == 3) {
+        if (inputIntegers.size() == ConstantNumber.TRIANGLE_LENGTH.getNumber()) {
             return new TriangleCalculator(inputIntegers);
         }
-        if (inputIntegers.size() == 4) {
+        if (inputIntegers.size() == ConstantNumber.RECTANGLE_LENGTH.getNumber()) {
             return new RectangleCalculator(inputIntegers);
         }
         throw new RuntimeException("좌표의 개수가 잘못되었습니다.");
@@ -59,13 +60,13 @@ public class GameController {
     }
 
     private void outputCalculateResult(double result, int size) {
-        if (size == 2) {
+        if (size == ConstantNumber.LINE_LENGTH.getNumber()) {
             OutputView.resultLine(result);
         }
-        if (size == 3) {
+        if (size == ConstantNumber.TRIANGLE_LENGTH.getNumber()) {
             OutputView.resultTriangle(result);
         }
-        if (size == 4) {
+        if (size == ConstantNumber.RECTANGLE_LENGTH.getNumber()) {
             OutputView.resultRectangle(result);
         }
     }

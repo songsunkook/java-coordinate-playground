@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import constant.ConstantNumber;
 import exception.NotCoordinateException;
 import exception.OutOfRangeException;
 
@@ -77,7 +78,7 @@ public class Coordinate {
     }
 
     private static void checkExceptions(List<Integer> result) {
-        if (result.stream().anyMatch(i -> i < 1 || i > 24)) {
+        if (result.stream().anyMatch(i -> i < ConstantNumber.MIN_RANGE.getNumber() || i > ConstantNumber.MAX_RANGE.getNumber())) {
             throw new OutOfRangeException(result);
         }
     }
