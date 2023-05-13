@@ -1,8 +1,8 @@
 package dto;
 
 public class CoordinateDto {
-    private int xPosition;
-    private int yPosition;
+    private final int xPosition;
+    private final int yPosition;
 
     public CoordinateDto(int xPosition, int yPosition) {
         this.xPosition = xPosition;
