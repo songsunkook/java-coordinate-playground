@@ -12,14 +12,13 @@ import service.CalculatorService;
 import service.LineCalculator;
 import service.RectangleCalculator;
 import service.TriangleCalculator;
-import util.NumberUtil;
 import view.InputView;
 import view.OutputView;
 
 public class GameController {
     public void run() {
         try {
-            List<Coordinate> inputIntegers = NumberUtil.separatingCoordinates(inputCoordinates());
+            List<Coordinate> inputIntegers = inputCoordinates();
             CalculatorService calculatorService = selectCalculatorService(inputIntegers);
             printCoordinatePlane(inputIntegers);
             outputCalculateResult(calculatorService.calculate(), inputIntegers.size());
@@ -50,7 +49,7 @@ public class GameController {
         outputCoordinatePlane(coordinateDtos);
     }
 
-    private String inputCoordinates() {
+    private List<Coordinate> inputCoordinates() {
         OutputView.outputMessage(OutputMessages.INPUT_COORDINATES);
         return InputView.coordinates();
     }
