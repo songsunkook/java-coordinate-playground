@@ -12,14 +12,16 @@ import exception.OutOfRangeException;
 
 public class InputView {
     private static final int STRING_TRIM_INDEX = 1;
+    private static final String COORDINATE_SEPARATOR = "-";
+    private static final String COORDINATE_AXIS_SEPARATOR = ",";
     private static final Scanner scanner = new Scanner(System.in);
     public static List<Coordinate> coordinates() {
         return separatingCoordinates(scanner.nextLine());
     }
 
     public static List<Coordinate> separatingCoordinates(String input) {
-        if (input.contains("-")) {
-            List<String> splitString = Arrays.asList(input.split("-"));
+        if (input.contains(COORDINATE_SEPARATOR)) {
+            List<String> splitString = Arrays.asList(input.split(COORDINATE_SEPARATOR));
 
             return splitString.stream()
                 .map(InputView::process)
@@ -32,7 +34,7 @@ public class InputView {
     private static List<Integer> process(String input) {
         String original = input;
         input = input.substring(STRING_TRIM_INDEX, input.length() - STRING_TRIM_INDEX);
-        List<String> list = Arrays.asList(input.split(","));
+        List<String> list = Arrays.asList(input.split(COORDINATE_AXIS_SEPARATOR));
         List<Integer> result = stringToIntList(list, original);
         checkValidRange(result);
         return result;
