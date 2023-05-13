@@ -2,6 +2,7 @@ package domain;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 import constant.ConstantNumber;
@@ -23,8 +24,19 @@ public class Coordinate {
         this(process(input));
     }
 
-    public boolean isEquals(Coordinate coordinate) {
-        return xPosition == coordinate.xPosition && yPosition == coordinate.yPosition;
+    @Override
+    public boolean equals(Object object) {
+        if (this == object)
+            return true;
+        if (!(object instanceof Coordinate))
+            return false;
+        Coordinate that = (Coordinate)object;
+        return xPosition == that.xPosition && yPosition == that.yPosition;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(xPosition, yPosition);
     }
 
     public Coordinate subtract(Coordinate target) {

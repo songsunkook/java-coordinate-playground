@@ -16,7 +16,7 @@ public class CoordinateTest {
     @DisplayName("정상적으로 자르는가")
     @MethodSource("parameter.TestParameter#numbersProvider")
     public void processTest(String string, Coordinate result) {
-        assertTrue(new Coordinate(string).isEquals(result));
+        assertTrue(new Coordinate(string).equals(result));
     }
 
     @ParameterizedTest
