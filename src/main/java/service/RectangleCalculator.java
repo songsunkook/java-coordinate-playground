@@ -13,6 +13,6 @@ public class RectangleCalculator extends CalculatorService {
     public double calculate() {
         Coordinate minCoordinate = Coordinate.min(coordinates);
         Coordinate maxCoordinate = Coordinate.max(coordinates);
-        return maxCoordinate.multiply(minCoordinate);
+        return (maxCoordinate.getXPosition() - minCoordinate.getXPosition()) * (maxCoordinate.getYPosition() - minCoordinate.getYPosition());
     }
 }

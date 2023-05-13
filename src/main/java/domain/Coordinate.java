@@ -33,10 +33,6 @@ public class Coordinate {
         return new Coordinate(argument);
     }
 
-    public double multiply(Coordinate target) {
-        return (xPosition - target.xPosition) * (yPosition - target.yPosition);
-    }
-
     public int getXPosition() {
         return xPosition;
     }
