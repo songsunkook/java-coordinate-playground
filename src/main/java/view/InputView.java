@@ -34,11 +34,11 @@ public class InputView {
         input = input.substring(STRING_TRIM_INDEX, input.length() - STRING_TRIM_INDEX);
         List<String> list = Arrays.asList(input.split(","));
         List<Integer> result = stringToIntList(list, original);
-        checkExceptions(result);
+        checkValidRange(result);
         return result;
     }
 
-    private static void checkExceptions(List<Integer> result) {
+    private static void checkValidRange(List<Integer> result) {
         if (result.stream().anyMatch(i -> i < ConstantNumber.MIN_RANGE.getNumber() || i > ConstantNumber.MAX_RANGE.getNumber())) {
             throw new OutOfRangeException(result);
         }
