@@ -46,29 +46,18 @@ public class Coordinate {
     }
 
     public static Coordinate max(List<Coordinate> coordinates) {
-        int maxX = coordinates.stream()
-            .mapToInt(Coordinate::getXPosition)
-            .max()
-            .orElseThrow(() -> new RuntimeException("좌표가 없습니다."));
-        int maxY = coordinates.stream()
-            .mapToInt(Coordinate::getYPosition)
-            .max()
-            .orElseThrow(() -> new RuntimeException("좌표가 없습니다."));
-        return new Coordinate(Arrays.asList(maxX, maxY));
+        Coordinate callerX = coordinates.stream()
+            .reduce((a,b) -> (a.getXPosition() > b.getXPosition() ? a : b)).get();
+        Coordinate callerY = coordinates.stream()
+            .reduce((a,b) -> (a.getYPosition() > b.getYPosition() ? a : b)).get();
+        return new Coordinate(Arrays.asList(callerX.xPosition, callerY.yPosition));
     }
 
     public static Coordinate min(List<Coordinate> coordinates) {
-        int minX = coordinates.stream()
-            .mapToInt(Coordinate::getXPosition)
-            .min()
-            .orElseThrow(() -> new RuntimeException("좌표가 없습니다."));
-        int minY = coordinates.stream()
-            .mapToInt(Coordinate::getYPosition)
-            .min()
-            .orElseThrow(() -> new RuntimeException("좌표가 없습니다."));
-        return new Coordinate(Arrays.asList(minX, minY));
+        Coordinate callerX = coordinates.stream()
+            .reduce((a,b) -> (a.getXPosition() > b.getXPosition() ? b : a)).get();
+        Coordinate callerY = coordinates.stream()
+            .reduce((a,b) -> (a.getYPosition() > b.getYPosition() ? b : a)).get();
+        return new Coordinate(Arrays.asList(callerX.xPosition, callerY.yPosition));
     }
-
-
-
 }
