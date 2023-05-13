@@ -1,6 +1,7 @@
 package parameter;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.stream.Stream;
 
 import org.junit.jupiter.params.provider.Arguments;
@@ -10,9 +11,9 @@ import domain.Coordinate;
 public class TestParameter {
     private static Stream<Arguments> numbersProvider() {
         return Stream.of(
-            Arguments.of("(1,2)", new Coordinate(Arrays.asList(1, 2))),
-            Arguments.of("(24,1)", new Coordinate(Arrays.asList(24, 1))),
-            Arguments.of("(13,22)", new Coordinate(Arrays.asList(13, 22)))
+            Arguments.of("(1,2)", Collections.singletonList(new Coordinate(Arrays.asList(1, 2)))),
+            Arguments.of("(24,1)",  Collections.singletonList(new Coordinate(Arrays.asList(24, 1)))),
+            Arguments.of("(13,22)",  Collections.singletonList(new Coordinate(Arrays.asList(13, 22))))
         ).map(arguments -> Arguments.of(arguments.get()[0], arguments.get()[1]));
     }
 

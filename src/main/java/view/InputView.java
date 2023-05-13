@@ -17,7 +17,7 @@ public class InputView {
         return separatingCoordinates(scanner.nextLine());
     }
 
-    private static List<Coordinate> separatingCoordinates(String input) {
+    public static List<Coordinate> separatingCoordinates(String input) {
         if (input.contains("-")) {
             List<String> splitString = Arrays.asList(input.split("-"));
 
