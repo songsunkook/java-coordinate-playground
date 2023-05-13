@@ -15,10 +15,11 @@ import view.OutputView;
 public class GameController {
     public void run() {
         try {
-            List<Coordinate> inputIntegers = inputCoordinates();
-            CalculatorService calculatorService = CalculatorService.getInstance(inputIntegers);
-            printCoordinatePlane(inputIntegers);
-            outputCalculateResult(calculatorService.calculate(), inputIntegers.size());
+            List<Coordinate> coordinates = inputCoordinates();
+            CalculatorService calculatorService = CalculatorService.getInstance(coordinates);
+
+            printCoordinatePlane(coordinates);
+            outputCalculateResult(calculatorService.calculate(), coordinates.size());
         } catch (RuntimeException exception) {
             OutputView.outputExceptionMessage(exception.getMessage());
             run();
