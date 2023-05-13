@@ -4,7 +4,9 @@ import java.util.List;
 
 public enum ExceptionMessages {
     OUT_OF_RANGE("%d ~ %d 사이의 숫자만을 입력해주세요. [잘못 입력된 좌표: (%d, %d)]"),
-    NOT_COORDINATE("올바르지 않은 형식이 입력되었습니다. [입력: %s]");
+    NOT_COORDINATE("올바르지 않은 형식이 입력되었습니다. [입력: %s]"),
+    NUMBER_OF_INVALID_COORDINATES("좌표의 개수가 잘못되었습니다."),
+    ;
 
     private final String message;
 

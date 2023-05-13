@@ -3,6 +3,7 @@ package service;
 import java.util.List;
 
 import constant.ConstantNumber;
+import constant.ExceptionMessages;
 import domain.Coordinate;
 
 public abstract class CalculatorService {
@@ -22,7 +23,7 @@ public abstract class CalculatorService {
         if (coordinates.size() == ConstantNumber.RECTANGLE_LENGTH.getNumber()) {
             return new RectangleCalculator(coordinates);
         }
-        throw new RuntimeException("좌표의 개수가 잘못되었습니다.");
+        throw new RuntimeException(ExceptionMessages.NUMBER_OF_INVALID_COORDINATES.getMessage());
     }
 
     public abstract double calculate();
