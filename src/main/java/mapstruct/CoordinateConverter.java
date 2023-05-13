@@ -5,6 +5,6 @@ import dto.CoordinateDto;
 
 public class CoordinateConverter {
     public static CoordinateDto toDto(Coordinate coordinate) {
-        return new CoordinateDto(coordinate.positionX(), coordinate.positionY());
+        return new CoordinateDto(coordinate.getXPosition(), coordinate.getYPosition());
     }
 }

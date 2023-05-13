@@ -11,12 +11,12 @@ import exception.OutOfRangeException;
 public class Coordinate {
     private static final int STRING_TRIM_INDEX = 1;
 
-    private final int xPos;
-    private final int yPos;
+    private final int xPosition;
+    private final int yPosition;
 
     public Coordinate(List<Integer> numbers) {
-        this.xPos = numbers.get(0);
-        this.yPos = numbers.get(1);
+        xPosition = numbers.get(0);
+        yPosition = numbers.get(1);
     }
 
     public Coordinate(String input) {
@@ -24,33 +24,33 @@ public class Coordinate {
     }
 
     public boolean isEquals(Coordinate coordinate) {
-        return xPos == coordinate.xPos && yPos == coordinate.yPos;
+        return xPosition == coordinate.xPosition && yPosition == coordinate.yPosition;
     }
 
     public Coordinate subtract(Coordinate target) {
-        List<Integer> argument = Arrays.asList(xPos - target.xPos, yPos - target.yPos);
+        List<Integer> argument = Arrays.asList(xPosition - target.xPosition, yPosition - target.yPosition);
         return new Coordinate(argument);
     }
 
     public double multiply(Coordinate target) {
-        return (xPos - target.xPos) * (yPos - target.yPos);
+        return (xPosition - target.xPosition) * (yPosition - target.yPosition);
     }
 
-    public int positionX() {
-        return xPos;
+    public int getXPosition() {
+        return xPosition;
     }
 
-    public int positionY() {
-        return yPos;
+    public int getYPosition() {
+        return yPosition;
     }
 
     public static Coordinate max(List<Coordinate> coordinates) {
         int maxX = coordinates.stream()
-            .mapToInt(Coordinate::positionX)
+            .mapToInt(Coordinate::getXPosition)
             .max()
             .orElseThrow(() -> new RuntimeException("좌표가 없습니다."));
         int maxY = coordinates.stream()
-            .mapToInt(Coordinate::positionY)
+            .mapToInt(Coordinate::getYPosition)
             .max()
             .orElseThrow(() -> new RuntimeException("좌표가 없습니다."));
         return new Coordinate(Arrays.asList(maxX, maxY));
@@ -58,11 +58,11 @@ public class Coordinate {
 
     public static Coordinate min(List<Coordinate> coordinates) {
         int minX = coordinates.stream()
-            .mapToInt(Coordinate::positionX)
+            .mapToInt(Coordinate::getXPosition)
             .min()
             .orElseThrow(() -> new RuntimeException("좌표가 없습니다."));
         int minY = coordinates.stream()
-            .mapToInt(Coordinate::positionY)
+            .mapToInt(Coordinate::getYPosition)
             .min()
             .orElseThrow(() -> new RuntimeException("좌표가 없습니다."));
         return new Coordinate(Arrays.asList(minX, minY));

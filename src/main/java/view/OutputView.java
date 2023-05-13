@@ -18,8 +18,8 @@ public class OutputView {
 
     private static void drawCoordinate(List<String> plane, List<CoordinateDto> coordinates) {
         for (CoordinateDto coordinate : coordinates) {
-            int xPos = coordinate.positionX();
-            int yPos = coordinate.positionY();
+            int xPos = coordinate.getXPosition();
+            int yPos = coordinate.getYPosition();
 
             plane.set(yPos + 1,
                 plane.get(yPos + 1).substring(0, (xPos + 1) * 2)

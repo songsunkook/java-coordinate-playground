@@ -1,19 +1,19 @@
 package dto;
 
 public class CoordinateDto {
-    private int xPos;
-    private int yPos;
+    private int xPosition;
+    private int yPosition;
 
-    public CoordinateDto(int xPos, int yPos) {
-        this.xPos = xPos;
-        this.yPos = yPos;
+    public CoordinateDto(int xPosition, int yPosition) {
+        this.xPosition = xPosition;
+        this.yPosition = yPosition;
     }
 
-    public int positionX() {
-        return xPos;
+    public int getXPosition() {
+        return xPosition;
     }
 
-    public int positionY() {
-        return yPos;
+    public int getYPosition() {
+        return yPosition;
     }
 }
